@@ -46,9 +46,6 @@ public_users.get('/', function (req, res) {
     //Write your code here
     // improvement with callbacks
     listBooks().then(bookList => res.send(JSON.stringify(bookList)));
-
-    // old code commented below
-    //res.send(JSON.stringify(bookList, null, 4));
 });
 
 
@@ -72,9 +69,6 @@ public_users.get('/isbn/:isbn', function (req, res) {
             book => res.send(book),
             err => res.status(err.status).json({ message: err.message })
         );
-
-    //   old code commented
-    //   res.send(books[isbn]);
 });
 
 
@@ -96,16 +90,6 @@ public_users.get('/author/:author', function (req, res) {
     //Write your code here
     const author = req.params.author;
     listBooksByAuthor(author).then(authBooks => res.send(authBooks));
-
-    // old code commented below
-    // let bkArr = [];
-    // for (var key in books) {
-    //     const book = books[key];
-    //     if (book.author === author) {
-    //         bkArr.push(book);
-    //     }
-    // }
-    // res.send(bkArr);
 });
 
 
@@ -127,16 +111,6 @@ public_users.get('/title/:title',function (req, res) {
   //Write your code here
     const title = req.params.title;
     listBooksByTitle(title).then(authBooks => res.send(authBooks));
-
-    // old code commented
-    // let bkArr = [];
-    // for (var key in books) {
-    //     const book = books[key];
-    //     if (book.title === title) {
-    //         bkArr.push(book);
-    //     }
-    // }
-    // res.send(bkArr);
 });
 
 //  Get book review
