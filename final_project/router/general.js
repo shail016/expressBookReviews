@@ -110,7 +110,7 @@ const listBooksByTitle = (title) =>{
 public_users.get('/title/:title',function (req, res) {
   //Write your code here
     const title = req.params.title;
-    listBooksByTitle(title).then(authBooks => res.send(authBooks));
+    listBooksByTitle(title).then(titleBooks => res.send(titleBooks));
 });
 
 //  Get book review
