@@ -63,7 +63,7 @@ regd_users.put("/auth/review/:isbn", (req, res, next) => {
 
     // console.log("update review");
     // console.log(books[isbn].reviews);
-    return res.status(200).send("User Review successfully Added!");
+    return res.status(200).send("User Review successfully Added/Updated!");
 });
 
 
