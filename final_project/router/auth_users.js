@@ -40,7 +40,7 @@ regd_users.post("/login", (req, res) => {
         }
         return res.status(200).send("User successfully logged in");
     } else {
-        return res.status(208).json({ message: "Invalid Login. Please check username & password" });
+        return res.status(208).json({ message: "Invalid Login. Please check username & password!" });
     }
 });
 
@@ -52,13 +52,13 @@ regd_users.put("/auth/review/:isbn", (req, res, next) => {
     const isbn = req.params.isbn;
     const book = books[isbn];
     
-    // console.log(books[isbn].reviews);
     //   adds the review for user else updates the old review
+    // using {<key value>} i.e. {<user:review>} structure for quick filter
     book.reviews[username] = review;
 
     // console.log("update review");
     // console.log(books[isbn].reviews);
-    return res.status(200).send("User Review successfully added");
+    return res.status(200).send("User Review successfully Added!");
 });
 
 
@@ -66,12 +66,13 @@ regd_users.delete("/auth/review/:isbn", (req, res) => {
     const username = req.session?.authorization?.username;
     const isbn = req.params.isbn;
     const book = books[isbn];
+    // using {<key value>} structure for quick filter
     if (book?.reviews[username]) {
         delete book.reviews[username];
     }
-    console.log("delete review");
-    console.log(books[isbn].reviews);
-    return res.status(200).send("User Review successfully deleted");
+    // console.log("delete review");
+    // console.log(books[isbn].reviews);
+    return res.status(200).send("User Review successfully Deleted!");
 });
 
 module.exports.authenticated = regd_users;
